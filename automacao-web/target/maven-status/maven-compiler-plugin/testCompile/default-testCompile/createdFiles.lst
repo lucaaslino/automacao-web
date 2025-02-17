@@ -1,0 +1,9 @@
+steps\FinalizarComprasStep.class
+pages\RealizarLoginPage.class
+pages\ComprarProdutosPage.class
+settings\DriverManager.class
+runners\TestRunner.class
+steps\ComprarProdutosStep.class
+steps\Hooks.class
+steps\RealizarLoginStep.class
+pages\FinalizarCompraPage.class

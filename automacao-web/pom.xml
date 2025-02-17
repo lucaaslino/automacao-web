@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.automacao</groupId>
+  <artifactId>automacao-web</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>automacao-web</name>
+  <url>http://maven.apache.org</url>
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version> <!-- Versão mais recente do plugin -->
+            <configuration>
+                <source>21</source> <!-- Versão do Java para compilar -->
+                <target>21</target> <!-- Versão do Java para gerar bytecode -->
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>2.10.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>report</goal>
+                        <goal>serve</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.2</version>
+            <configuration>
+                <systemPropertyVariables>
+                    <allure.results.directory>target/allure-results</allure.results.directory>
+                </systemPropertyVariables>
+            </configuration>
+        </plugin>
+        
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Cucumber -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.11.0</version>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.11.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Selenium WebDriver -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.8.3</version>
+    </dependency>
+
+    <!-- WebDriver Manager (para gerenciar drivers do navegador) -->
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.5.3</version>
+    </dependency>
+    
+   <!-- Dependência do Faker -->
+    <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>
+    </dependency>
+
+    <!-- Dependência Allure -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-java-commons</artifactId>
+        <version>2.15.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Allure Cucumber -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-cucumber7-jvm</artifactId>
+        <version>2.24.0</version>
+    </dependency>
+
+  </dependencies>
+
+</project>
